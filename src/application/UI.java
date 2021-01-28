@@ -41,10 +41,12 @@ public class UI {
 
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
+
 			String s = sc.nextLine();
 			char column = s.charAt(0);
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
+
 		} catch (RuntimeException e) {
 			throw new InputMismatchException("Error reading ChessPosition. valid values are from a1 to h8.");
 		}
@@ -96,7 +98,7 @@ public class UI {
 			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
 		if (piece == null) {
-			System.out.print("-");
+			System.out.print("-" + ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
